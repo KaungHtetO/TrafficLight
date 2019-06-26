@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./site.css">
+    <link rel="stylesheet" href=
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+    crossorigin="anonymous">
+    
+    
+
+    <title>Intern 2019</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                
+                <h1><strong>Traffic light</strong></h1>
+            </div>
+            <div class="col">
+                <button type="button" class="btn btn-success btn-lg" id="go">Go</button>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <div style="width:66px;height: 215px;border:2px solid black;background-color: 
+                black;background-attachment: fixed; ">
+                <div style="width:10px;height: 615px;border:2px solid black;background-color: 
+                black;">
+                    <div id="b1Green" class="bulb"><span>60</span></div>
+                    <div id="b1Yellow" class="bulb"><span>60</span></div>
+                    <div id="b1Red" class="bulb"><span>60</span></div>
+            </div></div></div>
+            <div class="col">
+                    <div style="width:66px;height: 215px;border:2px solid black;background-color: 
+                    black;background-attachment: fixed; ">
+                    <div style="width:10px;height: 615px;border:2px solid black;background-color: 
+                    black;">
+                    <div id="b2Green" class="bulb"><span>60</span></div>
+                    <div id="b2Yellow" class="bulb"><span>60</span></div>
+                    <div id="b2Red" class="bulb"><span>60</span></div>
+                    </div></div>
+
+                    
+                    
+            </div>
+            
+        </div>
+        
+          
+    </div>
+</body>
+
+    <script src="/jquery.js"></script>
+    
+    
+    <script>
+        $(document).ready(function () {
+        $("#go").click(function(){
+            traffic();     
+            
+        });
+    });
+            function traffic()
+            {    Gtimer();
+                function Gtimer()
+                {
+                    var gsec=6;
+                    var rsec=6;
+                    function gUpdateTime()
+                    {
+                        gsec--;rsec--;
+                        $('#b1Green').addClass("green");
+                        $('#b1Green').text(gsec);
+                        $('#b2Red').addClass("red");
+                        $('#b2Red').text(rsec);
+                        if(gsec<1 && rsec<1)
+                        {
+                           $('#b1Green').removeClass("green");
+                           $('#b1Green').text(0);
+                           $('#b1Yellow').addClass("yellow");
+                     
+                           
+                           $('#b2Red').removeClass("red");
+                           $('#b2Red').text(0);
+                           $('#b2Red').addClass("red");
+                           
+                            Ytimer();
+                           clearInterval(gInterval);
+
+                        }
+                    }
+                    gUpdateTime();
+                    var gInterval=setInterval(gUpdateTime,1000);
+                }
+
+                function Ytimer()
+                {
+                    var ysec=3;
+                    var rsec=3;
+                    function rUpdateTime()
+                    {
+                        ysec--;rsec--;
+                      
+                      
+                        $('#b1Yellow').addClass("yellow");
+                        $('#b1Yellow').text(ysec);
+                         $('#b2Red').addClass("red");
+                         $('#b2Red').text(rsec);
+                        if(ysec<1 && rsec<1)
+                        {
+                           $('#b1Yellow').removeClass("yellow");
+                           $('#b1Yellow').text(0);
+                           $('#b1Red').addClass("red");
+
+                           
+                           $('#b2Red').removeClass("red");
+                           $('#b2Res').text(0);
+                           $('#b2Green').addClass("green");
+                            Rtimer();
+                           clearInterval(rInterval);
+
+                        }
+                    }
+                    rUpdateTime();
+                    var rInterval=setInterval(rUpdateTime,1000);
+                }
+
+                function Rtimer()
+                {
+                    var rsec=6;
+                    var ysec=6;
+                    function yUpdateTime()
+                    {
+                        ysec--;rsec--;
+                        $('#b1Red').addClass("red");
+                        $('#b1Red').text(rsec);
+                        $('#b2Green').addClass("green");
+                        $('#b2Green').text(ysec);
+                        if(ysec<1 && rsec<1)
+                        {
+                           $('#b1Red').removeClass("red");
+                           $('#b1Red').text(0);
+                           $('#b1Red').addClass("red");
+
+                           
+                           $('#b2Green').removeClass("green");
+                           $('#b2Green').text(0);
+                           $('#b2Yellow').addClass("yellow");
+                            Otimer();
+                           clearInterval(yInterval);
+
+                        }
+                    }
+                    yUpdateTime();
+                    var yInterval=setInterval(yUpdateTime,1000);
+                }
+
+                function Otimer()
+                {
+                    var rsec=3;
+                    var ysec=3;
+                    function oUpdateTime()
+                    {
+                        ysec--;rsec--;
+                        $('#b1Red').addClass("red");
+                        $('#b1Red').text(rsec);
+                        $('#b2Yellow').addClass("yellow");
+                        $('#b2Yellow').text(ysec);
+                        if(ysec<1 && rsec<1)
+                        {
+                           $('#b1Red').removeClass("red");
+                           $('#b1Red').text(0);
+                           $('#b1Green').addClass("green");
+
+                           
+                           $('#b2Yellow').removeClass("yellow");
+                           $('#b2Yellow').text(0);
+                           $('#b2Red').addClass("red");
+                            Ltimer();
+                           clearInterval(oInterval);
+
+                        }
+                    }
+                    oUpdateTime();
+                    var oInterval=setInterval(oUpdateTime,1000);
+                }
+
+                function Ltimer()
+                {
+                    var rsec=6;
+                    var ysec=6;
+                    function lUpdateTime()
+                    {
+                        ysec--;rsec--;
+                        $('#b1Green').addClass("green");
+                        $('#b1Green').text(rsec);
+                        $('#b2Red').addClass("red");
+                        $('#b2Red').text(ysec);
+                        if(ysec<1 && rsec<1)
+                        {
+                           $('#b1Green').removeClass("green");
+                           $('#b1Green').text(0);
+                           $('#b1Yellow').addClass("yellow");
+
+                           
+                           $('#b2Red').removeClass("Red");
+                           $('#b2Red').text(0);
+                           $('#b2Red').addClass("red");
+                            Ytimer();
+                           clearInterval(lInterval);
+
+                        }
+                    }
+                    lUpdateTime();
+                    var lInterval=setInterval(lUpdateTime,1000);
+                }
+
+
+                
+            }
+
+
+       
+        
+    </script>
+    </html>
